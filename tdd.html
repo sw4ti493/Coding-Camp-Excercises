@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-size: 2em;
+            font-height: bold;
+        }
+
+        .pass {color: green}
+        .fail {color: red}
+    </style>
+    <script>
+
+        var testEqual = function(expected, actual) {
+            if (actual === expected) {
+                document.write("<div class = 'pass'>PASS</div>");
+            } else{
+                document.write("<div class = 'fail'>FAIL: " + expected + " !== " + actual + "</div>");
+            }
+
+        };
+
+
+/*
+
+        function sentReverse(sentence){
+
+        var r=sentence.length -1 ;
+        var result = "";
+        for (var x = r; x >=0; x--)
+        {
+            result = result + sentence.charAt(x);
+
+        }
+            return result;
+        }
+
+        testEqual(sentReverse("This is more JavaScript"),"tpircSavaJ erom si sihT");
+        testEqual(sentReverse("1,2,3,4"),"4,3,2,1");
+
+
+
+        function sentReverse(sentence){
+
+            return sentence.split("").reverse().join("");
+        }
+
+        testEqual(sentReverse("This is more JavaScript"),"tpircSavaJ erom si sihT");
+        testEqual(sentReverse("1,2,3,4"),"4,3,2,1")
+*/
+
+        function sentReverse(sentence){
+
+            return sentence.split(" ").reverse().join(" ");
+        }
+
+        testEqual(sentReverse("This is more JavaScript"),"JavaScript more is This");
+        testEqual(sentReverse("1,2,3,4"),"1,2,3,4")
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
