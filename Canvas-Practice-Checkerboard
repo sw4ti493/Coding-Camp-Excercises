@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Drawing Rectangles</title>
+
+</head>
+
+<body>
+    <script type="text/javascript"> <!--
+
+    window.addEventListener('load', function () {
+        // Step #1: Get the canvas element
+        var elem = document.getElementById('myCanvas');
+        if (!elem || !elem.getContext) {
+            return;
+        }
+        // Step #2: Get the canvas 2d context
+        var context = elem.getContext('2d');
+        if (!context) {
+            return;
+        }
+        // Step #3: INSERT YOUR CANVAS CODE HERE
+        var rectWidth=100, rectHeight=100;
+        var basePointX = 0 ;
+        var basePointY = 0 ;
+        var offsetX , rowCount=4 , colCount=4;
+        var colors= ["#00f", "#95a5a6","#ff0", "#e74c3c", "#16a085", "#9b59b6"];
+
+
+
+        for(var j = 0 ; j<rowCount; j++){
+            offsetX = 0;
+            for(var i=0; i<colCount; i++) {
+                offsetX=i*rectWidth;
+                context.fillStyle= colors[(i+j)%colors.length];
+                console.log( "  "+ offsetX );
+                context.fillRect(basePointX+offsetX,
+                                basePointY + rectHeight*j,
+                        rectWidth, rectHeight);
+
+                /*var c=document.getElementById("myCanvas");
+                var ctx=c.getContext("2d");
+                ctx.beginPath();
+                ctx.moveTo(basePointX, basePointY);
+                ctx.lineTo(basePointX + rectWidth,basePointY + rectHeight);
+                ctx.strokeStyle="black";
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(basePointX ,basePointY + rectHeight);
+                ctx.lineTo(basePointX + rectWidth, basePointY);
+                ctx.strokeStyle="black";
+                ctx.stroke();*/
+
+                var colorsTwo= ["pink", "green","black", "white", "yellow", "lightblue"];
+
+                context.fillStyle= colorsTwo[(i+j)%colors.length];
+                context.fillRect(basePointX+offsetX + rectWidth/4,
+                                basePointY + rectHeight/4 + rectHeight*j,
+                        rectWidth/2 , rectHeight/2);
+
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+                var centerX = rectWidth ;
+                var centerY = rectHeight ;
+                var radius = 10;
+
+                context.beginPath();
+                context.arc(basePointX+offsetX,
+                                basePointY + rectHeight*j, radius, 0, 2 * Math.PI, false);
+                context.fillStyle = colorsTwo[(i+j)%colors.length];
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = '#003300';
+                context.stroke();
+
+
+
+            }
+        }
+        elem.addEventListener("mousedown", mouseDown, false);
+        function mouseDown(event) {
+            canvasX = event.pageX;
+            canvasY = event.pageY;
+            console.log("X: "+canvasX+" Y: "+canvasY);
+            console.log("Row: " + Math.floor(((canvasX/rectWidth)-basePointX+offsetX)/rectWidth)+
+                   "Column: " + Math.floor(((canvasX/rectHeight)-basePointY+(rectHeight*j))/rectHeight));
+
+            /* var changeColor = "pink";
+            context.fillStyle = changeColor;
+
+            context.fillRect (Math.round(((canvasX-basePointX)/rectWidth)/50)*50,
+                                Math.round(((canvasY-basePointY)/rectHeight)/50)*50,
+                                rectWidth,
+                                rectHeight); */
+
+
+        }
+
+
+    });
+
+
+    // --></script>
+
+<canvas id="myCanvas" width="1900" height="1600">
+</canvas>
+</body>
+</html>
+
