@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Drawing Rectangles</title>
+
+    <script type="text/javascript"><!--
+    window.addEventListener('load', function () {
+        // Step #1: Get the canvas element
+        var elem = document.getElementById('myCanvas');
+        if (!elem || !elem.getContext) {
+            return;
+        }
+
+        // Step #2: Get the canvas 2d context
+        var context = elem.getContext('2d');
+        if (!context) {
+            return;
+        }
+
+        var rectWidth = 100, rectHeight = 100;
+
+        // Step #3: INSERT YOUR CANVAS CODE HERE
+        for(var i=0; i<100; i++) {
+            if(i%2==0) {
+                context.fillStyle = "#f00";
+            } else if (i%3!=0) {
+                context.fillStyle = "#0f0";
+            } else if (i%7!=0) {
+                context.fillStyle = "pink";
+            } else {
+                context.fillStyle = "#00f";
+            }
+
+            context.fillRect(i,i, rectWidth,rectHeight);
+        }
+    });
+    // --></script>
+</head>
+
+<body>
+<canvas id="myCanvas" width="800" height="600">
+</canvas>
+</body>
+</html>
