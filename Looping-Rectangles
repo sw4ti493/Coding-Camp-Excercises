@@ -30,7 +30,7 @@
                 context.fillStyle = "pink";
             } else {
                 context.fillStyle = "#00f";
-            }
+            };
 
             context.fillRect(i,i, rectWidth,rectHeight);
         }
